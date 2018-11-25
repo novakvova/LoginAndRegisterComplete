@@ -45,14 +45,24 @@ class SignupForm extends React.Component {
         var self = this;
         if (this.isValid()) {
             this.props.userSignupRequest(this.state)
-                .then(function (response) {
-                    console.log("--Response---", response);
-                    //console.log(this)
-                    self.setState({ errors: response.data.errors })
-                })
-                .catch(function (error) {
-                    console.log("---Request error---", error);
-                });
+                .then(
+                    () =>{},
+                    (error) => 
+                    { 
+                        var data=error.response.data; 
+                        console.log(error.response.data);
+                        this.setState({ errors: data.errors }); 
+                    }
+
+                );
+                // .then(function (response) {
+                //     console.log("--Response---", response);
+                //     //console.log(this)
+                //     self.setState({ errors: response.data.errors })
+                // })
+                // .catch(function (error) {
+                //     console.log("---Request error---", error);
+                // });
         }
         
     }
