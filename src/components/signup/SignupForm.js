@@ -5,6 +5,7 @@ import timezones from '../../data/timezones';
 import classnames from 'classnames';
 import validationInput from '../../validations/signup';
 import TextFieldGroup from '../../common/TextFieldGroup';
+import { browserHistory } from 'react-router';
 
 //import axios from 'axios';
 
@@ -42,11 +43,14 @@ class SignupForm extends React.Component {
         this.setState({ errors: {} });
         ///axios.post('api/register', this.state);
         console.log("--Send state--", this.state);
-        var self = this;
+        //var self = this;
         if (this.isValid()) {
             this.props.userSignupRequest(this.state)
                 .then(
-                    () =>{},
+                    () => {
+                        browserHistory.push('/');
+                        //this.context.router.push('/');
+                    },
                     (error) => 
                     { 
                         var data=error.response.data; 
