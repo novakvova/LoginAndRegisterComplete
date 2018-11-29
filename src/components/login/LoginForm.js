@@ -36,7 +36,6 @@ class LoginForm extends React.Component {
                     var data=err.response.data; 
                     this.setState({ errors: data.errors,  isLoading: false }) 
                 }
-
             );
 
         }
