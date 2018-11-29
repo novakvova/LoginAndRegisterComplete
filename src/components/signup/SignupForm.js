@@ -58,7 +58,7 @@ class SignupForm extends React.Component {
                     errors[field]='';
                     invalid = false;
                 }
-                self.setState({errors, invalid});
+                self.setState({errors, invalid, isLoading: false});
                 
             })
         }
